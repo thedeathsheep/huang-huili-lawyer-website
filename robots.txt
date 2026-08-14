@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# 域名确定后，在此添加 Sitemap 的公开绝对地址。

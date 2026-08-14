@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">空置会议空间</title>
+  <desc id="desc">空置会议桌、玻璃隔断、无文字文件夹与自然光构成的中性室内画面，不含人物。</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4F2ED"/>
+      <stop offset="1" stop-color="#D7D8D3"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0.85">
+      <stop offset="0" stop-color="#DDE2DE"/>
+      <stop offset="0.55" stop-color="#ABB6B1"/>
+      <stop offset="1" stop-color="#69736F"/>
+    </linearGradient>
+    <linearGradient id="table" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#343A38"/>
+      <stop offset="0.58" stop-color="#232826"/>
+      <stop offset="1" stop-color="#171B1A"/>
+    </linearGradient>
+    <linearGradient id="folder" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C3B38F"/>
+      <stop offset="1" stop-color="#9B8965"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#F4F2ED"/>
+
+  <g aria-hidden="true">
+    <rect width="650" height="690" fill="url(#wall)"/>
+    <path d="M0 332H650" fill="none" stroke="#C2C7C3" stroke-width="2" opacity="0.64"/>
+    <path d="M356 0V332M228 332V690" fill="none" stroke="#CDD0CD" stroke-width="2" opacity="0.62"/>
+
+    <rect x="650" width="950" height="690" fill="url(#glass)"/>
+    <path d="M650 0H1004L1388 690H918Z" fill="#FFFFFF" opacity="0.24"/>
+    <path d="M1072 0H1340L1600 420V690H1448Z" fill="#F4F2ED" opacity="0.18"/>
+    <path d="M650 690L1068 0H1244L934 690Z" fill="#171B1A" opacity="0.09"/>
+    <rect x="650" width="15" height="690" fill="#303735" opacity="0.76"/>
+    <rect x="958" width="13" height="690" fill="#303735" opacity="0.54"/>
+    <rect x="1268" width="13" height="690" fill="#303735" opacity="0.48"/>
+    <rect x="1538" width="11" height="690" fill="#303735" opacity="0.62"/>
+
+    <path d="M108 650H1492L1600 1000H0Z" fill="url(#table)"/>
+    <path d="M108 650H1492" fill="none" stroke="#69736F" stroke-width="4" opacity="0.82"/>
+    <path d="M0 950L1600 922V1000H0Z" fill="#111514" opacity="0.54"/>
+    <path d="M1180 650H1492L1600 1000H1388Z" fill="#F4F2ED" opacity="0.06"/>
+
+    <path d="M826 758L1138 712L1288 802L952 858Z" fill="url(#folder)"/>
+    <path d="M826 758L958 738L991 758L1190 728L1288 802L952 858Z" fill="#B4A078" opacity="0.72"/>
+    <path d="M887 742L1138 706L1220 754L955 797Z" fill="#F4F2ED"/>
+    <path d="M955 797L1220 754L1210 776L963 817Z" fill="#D6D7D2"/>
+    <path d="M952 858L1288 802" fill="none" stroke="#171B1A" stroke-width="3" opacity="0.48"/>
+  </g>
+</svg>
