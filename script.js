@@ -7,8 +7,13 @@
   const primaryNav = document.querySelector('#primaryNav');
   const navScrim = document.querySelector('[data-nav-close]');
   const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+  const home = document.querySelector('#home');
+  const contact = document.querySelector('#contact');
+  const footer = document.querySelector('.site-footer');
+  const mobileCall = document.querySelector('.mobile-call');
   const backToTop = document.querySelector('.back-to-top');
-  const mobileBreakpoint = window.matchMedia('(max-width: 1050px)');
+  const mobileBreakpoint = window.matchMedia('(max-width: 1080px)');
+  const mobileCallBreakpoint = window.matchMedia('(max-width: 700px)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let menuPreviouslyFocused = null;
   let scrollFrame = null;
@@ -34,6 +39,8 @@
       menuPreviouslyFocused.focus();
       menuPreviouslyFocused = null;
     }
+
+    requestScrollUpdate();
   }
 
   menuToggle?.addEventListener('click', () => {
@@ -82,12 +89,46 @@
     if (!event.matches && body.classList.contains('nav-open')) {
       setMenuState(false, false);
     }
+    requestScrollUpdate();
   });
+
+  mobileCallBreakpoint.addEventListener?.('change', requestScrollUpdate);
+
+  function setFloatingControlState(control, isVisible) {
+    if (!control) return;
+    control.classList.toggle('is-visible', isVisible);
+    control.setAttribute('aria-hidden', String(!isVisible));
+    if (isVisible) {
+      control.removeAttribute('tabindex');
+    } else {
+      control.setAttribute('tabindex', '-1');
+    }
+  }
 
   function updateScrollUI() {
     const scrollY = window.scrollY;
+    const menuOpen = body.classList.contains('nav-open');
+    const headerHeight = header?.offsetHeight || 0;
+    const heroPassed = home
+      ? home.getBoundingClientRect().bottom <= headerHeight
+      : scrollY > window.innerHeight;
+    const contactEntered = contact
+      ? contact.getBoundingClientRect().top <= window.innerHeight
+      : false;
+    const footerEntered = footer
+      ? footer.getBoundingClientRect().top <= window.innerHeight
+      : false;
+    const closingPlaneEntered = contactEntered || footerEntered;
+
     header?.classList.toggle('is-scrolled', scrollY > 16);
-    backToTop?.classList.toggle('is-visible', scrollY > 650);
+    setFloatingControlState(
+      mobileCall,
+      mobileCallBreakpoint.matches && heroPassed && !closingPlaneEntered && !menuOpen
+    );
+    setFloatingControlState(
+      backToTop,
+      scrollY > window.innerHeight * 2.25 && !closingPlaneEntered && !menuOpen
+    );
 
     const marker = scrollY + window.innerHeight * 0.38;
     let currentId = 'home';

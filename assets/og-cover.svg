@@ -1,36 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">黄绘莉律师成都民商事争议解决网站分享封面</title>
-  <desc id="desc">象牙白品牌文字区与石墨建筑光影块构成，呈现黄绘莉律师与成都民商事争议解决定位。</desc>
-  <defs>
-    <linearGradient id="facade" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#2D3431"/>
-      <stop offset="0.54" stop-color="#171B1A"/>
-      <stop offset="1" stop-color="#0E1110"/>
-    </linearGradient>
-    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#69736F" stop-opacity="0.18"/>
-      <stop offset="1" stop-color="#AAB2AE" stop-opacity="0.42"/>
-    </linearGradient>
-  </defs>
+  <desc id="desc">象牙白纸面、石墨深色块与香槟金证据轴构成的编辑式品牌封面。</desc>
 
   <rect width="1200" height="630" fill="#F4F2ED"/>
-  <rect x="744" width="456" height="630" fill="url(#facade)"/>
+  <rect x="744" width="456" height="630" fill="#171B1A"/>
 
-  <g aria-hidden="true">
-    <path d="M744 0H874L1048 630H864Z" fill="#69736F" opacity="0.2"/>
-    <path d="M904 0H1012L1200 416V630H1114Z" fill="#F4F2ED" opacity="0.08"/>
-    <path d="M1004 0H1136L1200 150V630H1088Z" fill="url(#glass)"/>
-    <rect x="862" width="10" height="630" fill="#0A0D0C" opacity="0.64"/>
-    <rect x="1000" width="9" height="630" fill="#49514E" opacity="0.58"/>
-    <rect x="1132" width="8" height="630" fill="#0A0D0C" opacity="0.54"/>
-    <path d="M744 0V630" fill="none" stroke="#B4A078" stroke-width="2"/>
+  <g aria-hidden="true" fill="none">
+    <path d="M744 0V630" stroke="#B4A078" stroke-width="3"/>
+    <path d="M814 92H1124" stroke="#F4F2ED" stroke-opacity="0.22"/>
+    <path d="M814 538H1124" stroke="#F4F2ED" stroke-opacity="0.22"/>
+    <path d="M814 92V538" stroke="#F4F2ED" stroke-opacity="0.11"/>
+    <path d="M968 92V538" stroke="#F4F2ED" stroke-opacity="0.11"/>
+    <path d="M1124 92V538" stroke="#F4F2ED" stroke-opacity="0.11"/>
+    <path d="M814 241H1124M814 389H1124" stroke="#F4F2ED" stroke-opacity="0.11"/>
+    <path d="M82 506H640" stroke="#171B1A" stroke-opacity="0.24"/>
+    <path d="M82 506H240" stroke="#B4A078" stroke-width="2"/>
   </g>
 
   <g fill="#171B1A">
-    <text x="82" y="112" fill="#69736F" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="23" font-weight="500" letter-spacing="5">成都 · 民商事争议解决</text>
-    <text x="78" y="254" font-family="Songti SC, STSong, SimSun, serif" font-size="76" font-weight="600" letter-spacing="7">黄绘莉律师</text>
-    <text x="82" y="348" fill="#69736F" font-family="Songti SC, STSong, SimSun, serif" font-size="30" letter-spacing="2">厘清事实与证据 · 推进争议解决</text>
-    <text x="82" y="492" fill="#3E4743" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="19" letter-spacing="3">专业为本  ·  审慎为度  ·  务实为果</text>
-    <text x="82" y="554" fill="#69736F" font-family="Arial, sans-serif" font-size="15" letter-spacing="5">HUANG HUILI · ATTORNEY</text>
+    <text x="82" y="116" fill="#806A43" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="22" font-weight="500" letter-spacing="5">成都 · 民商事争议解决</text>
+    <text x="78" y="292" font-family="Songti SC, STSong, SimSun, serif" font-size="82" font-weight="600" letter-spacing="7">黄绘莉律师</text>
+    <text x="82" y="397" fill="#5F6864" font-family="Songti SC, STSong, SimSun, serif" font-size="34" font-weight="400" letter-spacing="3">厘清事实与证据</text>
   </g>
 </svg>
