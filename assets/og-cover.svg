@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">黄绘莉律师个人网站分享封面</title>
-  <desc id="desc">象牙白品牌文字区与石墨建筑光影块构成的极简分享封面。</desc>
+  <title id="title">黄绘莉律师成都民商事争议解决网站分享封面</title>
+  <desc id="desc">象牙白品牌文字区与石墨建筑光影块构成，呈现黄绘莉律师与成都民商事争议解决定位。</desc>
   <defs>
     <linearGradient id="facade" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#2D3431"/>
@@ -27,9 +27,9 @@
   </g>
 
   <g fill="#171B1A">
-    <text x="82" y="112" fill="#69736F" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="23" font-weight="500" letter-spacing="6">民商事争议解决</text>
+    <text x="82" y="112" fill="#69736F" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="23" font-weight="500" letter-spacing="5">成都 · 民商事争议解决</text>
     <text x="78" y="254" font-family="Songti SC, STSong, SimSun, serif" font-size="76" font-weight="600" letter-spacing="7">黄绘莉律师</text>
-    <text x="82" y="348" fill="#69736F" font-family="Songti SC, STSong, SimSun, serif" font-size="30" letter-spacing="2">精研民商实务 · 深耕争议解决</text>
+    <text x="82" y="348" fill="#69736F" font-family="Songti SC, STSong, SimSun, serif" font-size="30" letter-spacing="2">厘清事实与证据 · 推进争议解决</text>
     <text x="82" y="492" fill="#3E4743" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="19" letter-spacing="3">专业为本  ·  审慎为度  ·  务实为果</text>
     <text x="82" y="554" fill="#69736F" font-family="Arial, sans-serif" font-size="15" letter-spacing="5">HUANG HUILI · ATTORNEY</text>
   </g>
