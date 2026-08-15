@@ -192,37 +192,6 @@
     revealElements.forEach((element) => revealObserver.observe(element));
   }
 
-  const caseToggles = Array.from(document.querySelectorAll('.case-toggle'));
-
-  caseToggles.forEach((button) => {
-    const detailId = button.getAttribute('aria-controls');
-    const detail = detailId ? document.getElementById(detailId) : null;
-    if (!detail) return;
-
-    detail.hidden = true;
-
-    button.addEventListener('click', () => {
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      const card = button.closest('.case-card');
-      const label = button.querySelector('span');
-
-      button.setAttribute('aria-expanded', String(!isExpanded));
-      detail.hidden = isExpanded;
-      card?.classList.toggle('is-open', !isExpanded);
-      if (label) label.textContent = isExpanded ? '查看处理思路' : '收起处理思路';
-    });
-  });
-
-  const faqItems = Array.from(document.querySelectorAll('.faq-item'));
-  faqItems.forEach((item) => {
-    item.addEventListener('toggle', () => {
-      if (!item.open) return;
-      faqItems.forEach((otherItem) => {
-        if (otherItem !== item) otherItem.open = false;
-      });
-    });
-  });
-
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
       const targetId = link.getAttribute('href');
