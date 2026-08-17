@@ -39,6 +39,8 @@ class SiteParser(HTMLParser):
                     "src": attributes.get("src"),
                     "alt": attributes.get("alt"),
                     "loading": attributes.get("loading"),
+                    "width": attributes.get("width"),
+                    "height": attributes.get("height"),
                 }
             )
 
@@ -121,6 +123,10 @@ class SiteStructureTests(unittest.TestCase):
         self.assertTrue(all(photo["alt"] == "" for photo in self.parser.practice_photos))
         self.assertTrue(
             all(photo["loading"] == "lazy" for photo in self.parser.practice_photos)
+        )
+        self.assertEqual(
+            [(photo["width"], photo["height"]) for photo in self.parser.practice_photos],
+            [("1600", "1067"), ("1600", "1068"), ("1600", "1067")],
         )
 
     def test_page_removes_mechanical_identity_repetition(self):

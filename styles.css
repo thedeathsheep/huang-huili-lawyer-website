@@ -7,7 +7,7 @@
   --surface-cool: #e8ece8;
   --text: #14201b;
   --muted: #59655f;
-  --bronze: #9b8564;
+  --bronze: #796349;
   --bronze-light: #c5b79c;
   --line: rgba(20, 32, 27, 0.18);
   --line-dark: rgba(245, 248, 244, 0.18);
@@ -68,6 +68,7 @@ a {
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 button {
@@ -245,6 +246,10 @@ dd {
 
 .section {
   padding-block: var(--section-space);
+}
+
+section[id] {
+  scroll-margin-top: var(--header-height);
 }
 
 .section-label {
@@ -950,14 +955,12 @@ dd {
 }
 
 .js .reveal {
-  filter: blur(2px);
   transform: translateY(18px);
-  transition: filter 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
 }
 
 .js .reveal.is-visible {
-  filter: none;
   transform: none;
 }
 
@@ -980,6 +983,7 @@ dd {
     padding: 88px 48px 48px;
     color: #f5f7f4;
     background: var(--ink);
+    overscroll-behavior: contain;
     transform: translateX(104%);
     transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -1477,11 +1481,11 @@ dd {
   .mobile-call {
     right: auto;
     bottom: max(16px, env(safe-area-inset-bottom));
-    left: 18px;
+    left: max(18px, env(safe-area-inset-left));
   }
 
   .back-to-top {
-    right: 18px;
+    right: max(18px, env(safe-area-inset-right));
     bottom: max(16px, env(safe-area-inset-bottom));
   }
 }
@@ -1500,7 +1504,6 @@ dd {
   }
 
   .js .reveal {
-    filter: none;
     transform: none;
   }
 }
