@@ -8,7 +8,11 @@ class SiteParser(HTMLParser):
         super().__init__()
         self.section_ids = []
         self.classes = set()
-        self.selected_case_count = 0
+        self.practice_dossier_count = 0
+        self.case_file_count = 0
+        self.case_field_counts = []
+        self._inside_case_file = False
+        self._current_case_field_count = 0
         self.hero_secondary_link_count = 0
         self.practice_photos = []
 
@@ -18,8 +22,14 @@ class SiteParser(HTMLParser):
             self.section_ids.append(attributes["id"])
         classes = attributes.get("class", "").split()
         self.classes.update(classes)
-        if tag == "article" and "selected-case" in classes:
-            self.selected_case_count += 1
+        if tag == "article" and "practice-dossier" in classes:
+            self.practice_dossier_count += 1
+        if tag == "article" and "case-file" in classes:
+            self.case_file_count += 1
+            self._inside_case_file = True
+            self._current_case_field_count = 0
+        if tag == "section" and self._inside_case_file and "case-field" in classes:
+            self._current_case_field_count += 1
         if tag == "a" and "hero-secondary-link" in classes:
             self.hero_secondary_link_count += 1
         if tag == "img" and "practice-photo__image" in classes:
@@ -31,6 +41,12 @@ class SiteParser(HTMLParser):
                     "loading": attributes.get("loading"),
                 }
             )
+
+    def handle_endtag(self, tag):
+        if tag == "article" and self._inside_case_file:
+            self.case_field_counts.append(self._current_case_field_count)
+            self._inside_case_file = False
+            self._current_case_field_count = 0
 
 
 class SiteStructureTests(unittest.TestCase):
@@ -50,36 +66,43 @@ class SiteStructureTests(unittest.TestCase):
             ["home", "services", "about", "service", "cases", "contact"],
         )
 
-    def test_redesign_has_integrated_trust_and_credentials(self):
+    def test_premium_profile_has_required_semantic_regions(self):
         required = {
-            "hero-practice-list",
-            "practice-ledger",
-            "problem-list",
-            "about-credentials",
+          "hero-practice-list",
+            "practice-dossiers",
+            "client-questions",
+            "profile-facts",
             "contact-panel",
         }
         self.assertTrue(required.issubset(self.parser.classes))
         self.assertNotIn("trust-strip", self.parser.classes)
         self.assertNotIn("hero-trust", self.parser.classes)
 
-    def test_later_page_is_a_concise_private_client_journey(self):
+    def test_page_presents_three_equal_practices_and_five_detailed_cases(self):
         required = {
             "service-relationship",
             "relationship-stage",
-            "selected-case",
+            "case-file",
+            "case-field",
             "contact-preparation",
         }
         retired = {"method-list", "insight-note", "faq-item"}
 
         self.assertTrue(required.issubset(self.parser.classes))
         self.assertTrue(retired.isdisjoint(self.parser.classes))
-        self.assertEqual(self.parser.selected_case_count, 3)
+        self.assertEqual(self.parser.practice_dossier_count, 3)
+        self.assertEqual(self.parser.case_file_count, 5)
+        self.assertEqual(self.parser.case_field_counts, [5, 5, 5, 5, 5])
+
+    def test_license_number_is_not_published(self):
+        self.assertNotIn("15101202611271621", self.html)
+        self.assertNotIn("执业证号", self.html)
 
     def test_mobile_editorial_layout_contract(self):
-        self.assertIn("mobile-editorial-layout", self.parser.classes)
+        self.assertIn("premium-counsel-layout", self.parser.classes)
 
     def test_mobile_hero_prioritizes_the_lawyer(self):
-        self.assertIn("hero--portrait-first", self.parser.classes)
+        self.assertIn("hero--counsel-profile", self.parser.classes)
         self.assertEqual(self.parser.hero_secondary_link_count, 0)
 
     def test_each_practice_area_has_a_distinct_local_photo(self):
@@ -105,12 +128,9 @@ class SiteStructureTests(unittest.TestCase):
         self.assertNotIn("footer-nav", self.parser.classes)
         self.assertIn("footer-minimal", self.parser.classes)
         self.assertNotIn("<figcaption>", self.html)
-        self.assertNotIn(
-            "黄绘莉律师&nbsp;&nbsp;/&nbsp;&nbsp;四川观今律师事务所",
-            self.html,
-        )
-        self.assertIn("成都 · 民商事争议解决", self.html)
-        self.assertIn("执业方向与工作重点", self.html)
+        self.assertIn("黄绘莉律师｜四川观今律师事务所", self.html)
+        self.assertIn("民商事争议解决", self.html)
+        self.assertIn("专业方向与工作方法", self.html)
 
 
 if __name__ == "__main__":
