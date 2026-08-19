@@ -607,6 +607,28 @@ section[id] {
   line-height: 1.8;
 }
 
+.about-copy a,
+.profile-facts a,
+.contact-details a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.about-copy a:hover,
+.profile-facts a:hover,
+.contact-details a:hover {
+  color: var(--bronze);
+}
+
+.contact-details a {
+  color: #f5f7f4;
+}
+
+.contact-details a:hover {
+  color: var(--bronze-light);
+}
+
 .about-copy p:not(.about-intro) {
   max-width: 44em;
   color: var(--muted);
