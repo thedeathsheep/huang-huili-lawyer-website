@@ -792,38 +792,38 @@ section[id] {
 
 .case-file__content {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 clamp(32px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   align-self: start;
 }
 
 .case-field {
-  padding: 24px 0 30px;
+  padding: 28px 0 32px;
   border-top: 1px solid var(--line);
 }
 
-.case-field:first-child,
-.case-field:nth-child(2) {
+.case-field:first-child {
   border-top: 0;
   padding-top: 0;
 }
 
 .case-field:last-child {
-  grid-column: 1 / -1;
+  padding-bottom: 0;
 }
 
 .case-field h4 {
   color: var(--bronze);
   font-size: 13px;
   font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 .case-field p {
-  max-width: 42em;
-  margin-top: 10px;
+  max-width: 52em;
+  margin-top: 12px;
   color: #34413b;
-  font-size: 15px;
-  line-height: 1.85;
+  font-size: 16px;
+  line-height: 1.9;
 }
 
 .contact {
@@ -1460,11 +1460,8 @@ section[id] {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .case-field,
-  .case-field:first-child,
-  .case-field:nth-child(2) {
-    padding: 22px 0 26px;
-    border-top: 1px solid var(--line);
+  .case-field {
+    padding: 24px 0 28px;
   }
 
   .case-field:first-child {
@@ -1473,7 +1470,7 @@ section[id] {
   }
 
   .case-field:last-child {
-    grid-column: auto;
+    padding-bottom: 0;
   }
 
   .contact {
