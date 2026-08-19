@@ -448,10 +448,6 @@ section[id] {
   text-wrap: balance;
 }
 
-.section-heading--split h2 .heading-line {
-  white-space: nowrap;
-}
-
 .section-heading h2,
 .about-content h2,
 .relationship-heading h2,

@@ -136,7 +136,7 @@ class SiteStructureTests(unittest.TestCase):
         self.assertNotIn("<figcaption>", self.html)
         self.assertIn("黄绘莉律师｜四川观今律师事务所", self.html)
         self.assertIn("民商事争议解决", self.html)
-        self.assertIn("专业方向与工作方法", self.html)
+        self.assertIn("简介", self.html)
 
 
 if __name__ == "__main__":
