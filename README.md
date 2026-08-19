@@ -21,7 +21,8 @@ huang-huili-lawyer-website/
    ├─ practice-business.jpg     企业经营业务配图
    ├─ practice-family.jpg       婚姻家事业务配图
    ├─ favicon.svg               浏览器图标
-   └─ og-cover.svg              社交分享封面
+   ├─ og-cover.svg              社交分享封面设计源文件
+   └─ og-cover.png              社交分享封面位图，1200×630
 ```
 
 ## 本地预览
@@ -46,6 +47,12 @@ python -m http.server 8081
 6. 联系咨询：电话、律所、地址和咨询前材料提示
 
 三类业务在视觉和内容上保持同一层级，不设置主次。案例区只使用已经确认的五个案例，不增加无法由资料支持的法院、案号、客户身份、精确日期、荣誉或职业年限。
+
+## 文案用词
+
+「常见情况」使用当事人自己的说法，例如“对方欠款不还”“被辞退”“离婚时房产分割有争议”，便于来访者确认自己属于哪一类问题。「处理事项」使用对应的法律事务名称，例如“欠款清收与民间借贷”“劳动仲裁与劳动诉讼”“离婚财产分割”。
+
+首屏、业务领域、关于律师和页面元信息保留“成都”地域说明。改写文案时保持这两层用词的对应关系，不堆砌关键词，不使用结果承诺类表述。
 
 ## 案例维护规则
 
@@ -81,8 +88,15 @@ python -m http.server 8081
 | 合同债权 | `assets/practice-contract.jpg` | 1600×1067 | 装饰图片，空替代文本 |
 | 企业经营 | `assets/practice-business.jpg` | 1600×1068 | 装饰图片，空替代文本 |
 | 婚姻家事 | `assets/practice-family.jpg` | 1600×1067 | 装饰图片，空替代文本 |
+| 分享封面 | `assets/og-cover.png` | 1200×630 | 微信、社交平台与搜索预览封面 |
 
 替换人物图片时，应同步核对身份一致性、文件尺寸、替代文本、发布授权和各视口裁切。业务配图不传递必要信息，继续使用空替代文本，避免屏幕阅读器重复描述装饰内容。
+
+## 分享封面
+
+`og:image` 指向 `assets/og-cover.png` 的绝对地址。微信、QQ 和多数社交平台不解析 SVG，因此页面引用位图，`assets/og-cover.svg` 作为设计源文件保留。
+
+修改文字或配色后，从 SVG 重新导出同名 PNG，尺寸保持 1200×630：标题使用宋体族衬线字体，副标题同族常规字重，眉标使用无衬线字体。导出后确认 `og:image:width`、`og:image:height` 与实际文件一致。
 
 ## 交互与渐进增强
 
@@ -135,5 +149,7 @@ python -m unittest discover -s tests -v
 
 - `https://黄绘莉律师.com/`
 - `https://www.黄绘莉律师.com/`
+
+中文域名在配置文件和绝对地址中使用 punycode 形式 `xn--etto7a200ej6d294b.com`。`index.html` 的 `canonical`、`og:url` 和 `og:image` 均指向该根域名，更换域名时需同步修改这三处。
 
 生产目录只包含 `index.html`、`styles.css`、`script.js`、`robots.txt` 和 `assets/`。测试、设计资料、部署脚本和源文档不进入公开目录。
