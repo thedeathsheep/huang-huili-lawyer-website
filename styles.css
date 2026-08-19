@@ -566,6 +566,7 @@ section[id] {
 .portrait-frame {
   position: relative;
   width: 100%;
+  max-width: 420px;
 }
 
 .portrait-frame::before {
@@ -581,10 +582,13 @@ section[id] {
 
 .portrait-frame img {
   position: relative;
+  display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
+  max-height: none;
   object-fit: cover;
-  object-position: 50% 30%;
+  object-position: 50% 18%;
 }
 
 .about-content h2 {
@@ -1200,7 +1204,7 @@ section[id] {
   }
 
   .portrait-frame {
-    width: min(100%, 540px);
+    width: min(100%, 420px);
   }
 
   .relationship-layout {
@@ -1377,6 +1381,15 @@ section[id] {
 
   .about-layout {
     gap: 44px;
+  }
+
+  .about-visual {
+    justify-self: center;
+    width: min(100%, 360px);
+  }
+
+  .portrait-frame {
+    max-width: none;
   }
 
   .portrait-frame::before {
