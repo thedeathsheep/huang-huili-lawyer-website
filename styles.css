@@ -1234,13 +1234,13 @@ section[id] {
 
 @media (max-width: 560px) {
   :root {
-    --page-pad: 18px;
-    --section-space: 64px;
+    --page-pad: 20px;
+    --section-space: 72px;
     --header-height: 68px;
   }
 
   body {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .brand {
@@ -1261,63 +1261,62 @@ section[id] {
   }
 
   .hero--counsel-profile .hero-shell {
-    grid-template-rows: minmax(690px, calc(100svh - var(--header-height))) auto;
+    grid-template-rows: auto auto auto;
   }
 
-  .hero--counsel-profile .hero-copy,
   .hero--counsel-profile .hero-visual {
     grid-row: 1;
     grid-column: 1;
-  }
-
-  .hero--counsel-profile .hero-visual {
     z-index: 1;
-    min-height: 690px;
+    min-height: 0;
+    margin-top: var(--header-height);
+    aspect-ratio: 4 / 5;
   }
 
   .hero--counsel-profile .hero-copy {
-    position: relative;
+    grid-row: 2;
+    grid-column: 1;
     z-index: 2;
-    justify-content: flex-end;
-    min-height: 690px;
-    padding: 250px var(--page-pad) 30px;
-    background: linear-gradient(180deg, rgba(6, 12, 9, 0.02) 0%, rgba(6, 12, 9, 0.04) 36%, rgba(6, 12, 9, 0.6) 62%, rgba(6, 12, 9, 0.96) 100%);
+    justify-content: flex-start;
+    min-height: 0;
+    padding: 34px var(--page-pad) 32px;
+    background: var(--ink);
   }
 
   .hero--counsel-profile .hero-portrait::after {
-    background: linear-gradient(180deg, transparent 0%, rgba(6, 12, 9, 0.08) 58%, rgba(6, 12, 9, 0.44) 100%);
+    background: linear-gradient(180deg, transparent 68%, rgba(6, 12, 9, 0.16) 100%);
   }
 
   .hero-portrait img {
-    object-position: 52% 28%;
+    object-position: 52% 18%;
   }
 
   .hero-eyebrow {
-    margin-bottom: 10px;
-    font-size: 9px;
+    margin-bottom: 12px;
+    font-size: 10px;
   }
 
   .hero-role {
-    padding-bottom: 10px;
-    font-size: 12px;
+    padding-bottom: 14px;
+    font-size: 13px;
     border-bottom-color: rgba(245, 247, 244, 0.34);
   }
 
   .hero h1 {
     max-width: 5.8em;
-    margin-top: 16px;
-    font-size: clamp(43px, 13vw, 56px);
+    margin-top: 24px;
+    font-size: clamp(44px, 12.5vw, 52px);
     line-height: 1.04;
   }
 
   .hero-lead {
-    margin-top: 16px;
-    font-size: 14px;
-    line-height: 1.68;
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.78;
   }
 
   .hero-actions {
-    margin-top: 20px;
+    margin-top: 24px;
   }
 
   .button {
@@ -1326,20 +1325,20 @@ section[id] {
   }
 
   .hero--counsel-profile .hero-practice-list {
-    grid-row: 2;
+    grid-row: 3;
     padding-inline: var(--page-pad);
   }
 
   .hero-practice-list dt {
-    font-size: 17px;
+    font-size: 19px;
   }
 
   .hero-practice-list dd {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .section-label {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .section-heading h2,
@@ -1367,11 +1366,11 @@ section[id] {
   }
 
   .practice-dossier h3 {
-    font-size: 29px;
+    font-size: 30px;
   }
 
   .practice-photo {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
   }
 
   .practice-dossier__content {
@@ -1410,7 +1409,12 @@ section[id] {
 
   .about-copy .about-intro {
     grid-row: auto;
-    font-size: 19px;
+    font-size: 20px;
+  }
+
+  .about-copy p:not(.about-intro) {
+    font-size: 16px;
+    line-height: 1.85;
   }
 
   .profile-facts {
@@ -1443,7 +1447,13 @@ section[id] {
 
   .case-file__header h3 {
     margin-top: 24px;
-    font-size: 31px;
+    font-size: 30px;
+    line-height: 1.34;
+  }
+
+  .case-file__header > div > p,
+  .case-field p {
+    font-size: 16px;
   }
 
   .case-file__content {
@@ -1485,6 +1495,7 @@ section[id] {
 
   .contact-main > p:nth-of-type(2) {
     margin-top: 24px;
+    font-size: 16px;
   }
 
   .contact-phone {
@@ -1514,20 +1525,62 @@ section[id] {
     gap: 4px;
   }
 
+  .contact-preparation li {
+    font-size: 15px;
+  }
+
+  .contact-details dd {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
   .footer-minimal {
     grid-template-columns: minmax(0, 1fr);
     gap: 14px;
+    font-size: 13px;
   }
 
   .mobile-call {
-    right: max(18px, env(safe-area-inset-right));
+    right: max(12px, env(safe-area-inset-right));
     left: auto;
-    bottom: max(16px, env(safe-area-inset-bottom));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    min-height: 48px;
+    padding-inline: 16px;
   }
 
   .back-to-top {
-    right: max(18px, env(safe-area-inset-right));
-    bottom: calc(max(16px, env(safe-area-inset-bottom)) + 60px);
+    display: none;
+  }
+}
+
+@media (max-width: 340px) {
+  :root {
+    --page-pad: 16px;
+  }
+
+  .brand strong {
+    font-size: 18px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .case-file__header h3 {
+    font-size: 28px;
+  }
+
+  .contact-phone strong {
+    font-size: 24px;
+  }
+
+  .mobile-call {
+    width: 48px;
+    padding: 0;
+  }
+
+  .mobile-call span {
+    display: none;
   }
 }
 
