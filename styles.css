@@ -438,9 +438,18 @@ section[id] {
 
 .section-heading--split > div {
   display: grid;
-  grid-template-columns: minmax(320px, 0.8fr) minmax(260px, 0.7fr);
+  grid-template-columns: minmax(420px, 1.05fr) minmax(240px, 0.75fr);
   align-items: end;
   gap: clamp(40px, 6vw, 88px);
+}
+
+.section-heading--split h2 {
+  max-width: 11em;
+  text-wrap: balance;
+}
+
+.section-heading--split h2 .heading-line {
+  white-space: nowrap;
 }
 
 .section-heading h2,
@@ -810,8 +819,9 @@ section[id] {
 }
 
 .contact h2 {
-  max-width: 8em;
+  max-width: 11em;
   margin-top: 24px;
+  text-wrap: balance;
 }
 
 .contact-main > p:nth-of-type(2) {
@@ -1479,14 +1489,14 @@ section[id] {
   }
 
   .mobile-call {
-    right: auto;
+    right: max(18px, env(safe-area-inset-right));
+    left: auto;
     bottom: max(16px, env(safe-area-inset-bottom));
-    left: max(18px, env(safe-area-inset-left));
   }
 
   .back-to-top {
     right: max(18px, env(safe-area-inset-right));
-    bottom: max(16px, env(safe-area-inset-bottom));
+    bottom: calc(max(16px, env(safe-area-inset-bottom)) + 60px);
   }
 }
 
