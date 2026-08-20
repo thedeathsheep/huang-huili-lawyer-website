@@ -154,4 +154,21 @@ python -m unittest discover -s tests -v
 
 中文域名在配置文件和绝对地址中使用 punycode 形式 `xn--etto7a200ej6d294b.com`。`index.html` 的 `canonical`、`og:url` 和 `og:image` 均指向该根域名，更换域名时需同步修改这三处。
 
-生产目录只包含 `index.html`、`styles.css`、`script.js`、`robots.txt` 和 `assets/`。测试、设计资料、部署脚本和源文档不进入公开目录。
+生产目录只包含 `index.html`、`styles.css`、`script.js`、`robots.txt`、`sitemap.xml` 和 `assets/`。测试、设计资料、部署脚本和源文档不进入公开目录。
+
+## 搜索引擎收录
+
+站点已提供：
+
+- `robots.txt`：允许抓取，并声明 sitemap
+- `sitemap.xml`：提交给站长平台使用
+- 页面 `canonical`、Open Graph、`WebSite` / `Person` / `LegalService` 结构化数据
+
+提交入口（需人工登录完成验证）：
+
+1. [百度搜索资源平台](https://ziyuan.baidu.com/)：添加站点 → 验证归属 → 提交 sitemap `https://xn--etto7a200ej6d294b.com/sitemap.xml`
+2. [必应网站管理员工具](https://www.bing.com/webmasters)：添加站点并提交同一 sitemap
+3. [Google Search Console](https://search.google.com/search-console)：添加资源并提交 sitemap
+4. [360 站长平台](https://zhanzhang.so.com/)、[搜狗站长平台](https://zhanzhang.sogou.com/)：按平台流程添加站点
+
+豆包、混元等大模型检索通常依赖开放网页抓取与主流搜索索引，没有单独的“提交入口”。先完成百度与必应收录，并保持站点可公开访问、内容为完整 HTML，是提高被检索概率的主要路径。
