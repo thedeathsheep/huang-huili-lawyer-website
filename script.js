@@ -8,6 +8,8 @@
   const navScrim = document.querySelector('[data-nav-close]');
   const navLinks = Array.from(document.querySelectorAll('.nav-link'));
   const backToTop = document.querySelector('.back-to-top');
+  const mobileCall = document.querySelector('.mobile-call');
+  const hero = document.querySelector('.hero');
   const mobileBreakpoint = window.matchMedia('(max-width: 1050px)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let menuPreviouslyFocused = null;
@@ -88,6 +90,8 @@
     const scrollY = window.scrollY;
     header?.classList.toggle('is-scrolled', scrollY > 16);
     backToTop?.classList.toggle('is-visible', scrollY > 650);
+    const heroExitPoint = hero ? Math.max(360, hero.offsetHeight - 180) : 520;
+    mobileCall?.classList.toggle('is-visible', scrollY > heroExitPoint);
 
     const marker = scrollY + window.innerHeight * 0.38;
     let currentId = 'home';

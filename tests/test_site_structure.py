@@ -75,6 +75,9 @@ class SiteStructureTests(unittest.TestCase):
         self.assertIn('href="https://beian.miit.gov.cn/"', self.html)
         self.assertIn("湘ICP备", self.html)
 
+    def test_redesign_stylesheet_is_loaded(self):
+        self.assertIn('href="redesign.css"', self.html)
+
     def test_real_portraits_are_used(self):
         self.assertIn("assets/huang-huili-portrait.webp", self.html)
         self.assertIn("assets/huang-huili-profile.webp", self.html)
