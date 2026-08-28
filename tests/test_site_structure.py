@@ -66,6 +66,15 @@ class SiteStructureTests(unittest.TestCase):
         self.assertNotIn("15101202611271621", self.html)
         self.assertNotIn("执业证号", self.html)
 
+    def test_brand_uses_lawyer_label_without_standalone_mark(self):
+        self.assertIn("LAWYER", self.html)
+        self.assertNotIn("ATTORNEY", self.html)
+        self.assertNotIn('class="brand-mark"', self.html)
+
+    def test_footer_displays_icp_beian_link(self):
+        self.assertIn('href="https://beian.miit.gov.cn/"', self.html)
+        self.assertIn("湘ICP备", self.html)
+
     def test_real_portraits_are_used(self):
         self.assertIn("assets/huang-huili-portrait.webp", self.html)
         self.assertIn("assets/huang-huili-profile.webp", self.html)
